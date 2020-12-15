@@ -10,7 +10,7 @@ Shares the ESP between the users of this LUA
 - Download and install [NodeJS](https://nodejs.org/en/) on your system
 - Download the server script (server.js)
 - Open a terminal (cmd, PowerShell, etc)
-- Navigate to where the server script is downloaded
+- Navigate to the path where the server script is downloaded
 - Run the server script with "node server.js"
 
 ### For Linux
