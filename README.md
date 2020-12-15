@@ -19,7 +19,7 @@ Shares the ESP between the users of this LUA
     ufw allow ssh
     git clone https://github.com/stqcky/SharedESP
     cd SharedESP
-    node app.js
+    node server.js
     
 
 ## If you want your server to be added to the server list
