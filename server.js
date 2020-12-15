@@ -1,4 +1,4 @@
-//version 1.2
+//version 1.2.1
 
 const dgram = require("dgram");
 
@@ -85,7 +85,7 @@ class PacketHandler {
             return;
 
         if (remote.address in this.ipLastPacketTime) {
-            if (curTime - this.ipLastPacketTime[remote.address] < 0.03125) {
+            if (curTime - this.ipLastPacketTime[remote.address] < 0.0625) {
                 return;
             }
         }
