@@ -1,3 +1,5 @@
+//version 1.2
+
 const dgram = require("dgram");
 
 const PacketType = {
@@ -23,6 +25,7 @@ class PacketHandler {
         this.socket = socket;
         this.clientList = [];
         this.lastHeartbeatCheck = 0;
+        this.ipLastPacketTime = {};
     }
 
     makePacket(packet, type) {
@@ -76,6 +79,18 @@ class PacketHandler {
     handlePacket(packet, remote) {
         let type = parseInt(packet.substring(0, 1));
         packet = packet.substring(1);
+        let curTime = new Date().getTime() / 1000
+
+        if (packet.length > 512)
+            return;
+
+        if (remote.address in this.ipLastPacketTime) {
+            if (curTime - this.ipLastPacketTime[remote.address] < 0.03125) {
+                return;
+            }
+        }
+
+        this.ipLastPacketTime[remote.address] = curTime
 
         switch (type) {
             case PacketType.HEARTBEAT:
@@ -109,7 +124,7 @@ function main() {
         console.log(`Server error:\n${err.stack}`);
         socket.close();
     });
-    
+
     socket.bind(port, "0.0.0.0");
 }
 
