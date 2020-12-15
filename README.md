@@ -1,5 +1,5 @@
 # SharedESP
-Shares the ESP between users of this LUA
+Shares the ESP between the users of this LUA
 
 ![](stuff/showcase.gif)
 
