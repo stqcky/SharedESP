@@ -1,3 +1,5 @@
+## ⚠️ Discontinued since it was added to AIMWARE.
+
 # SharedESP
 Shares the ESP between the users of this LUA
 
